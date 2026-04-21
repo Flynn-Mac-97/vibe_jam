@@ -179,3 +179,8 @@ The project uses [CoplayDev/unity-mcp](https://github.com/CoplayDev/unity-mcp) (
 6. Do not upgrade the Unity version — 2022.3.62f1 is locked.
 7. `Library/` and `Temp/` are generated — never edit files inside them.
 8. When creating new scenes, use `Assets/Settings/Lit2DSceneTemplate` as the template.
+9. **Scene validation — stop and ask the human**: After any implementation step that affects the scene visually, take a screenshot (`take_screenshot` / `mcp_unitymcp_manage_editor`) and inspect it. If the scene does not look correct (wrong layout, missing objects, broken lighting, invisible sprites, unexpected behaviour), **do not attempt to self-correct silently**. Instead:
+   - State clearly what looks wrong in the screenshot.
+   - List the most likely causes you can identify.
+   - Ask the human to open the Unity Editor, inspect the scene hierarchy / Inspector, and report back with what they observe.
+   - Wait for the human's response before proceeding with any further changes.
