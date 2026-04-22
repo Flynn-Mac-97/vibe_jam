@@ -67,7 +67,7 @@ Beats from the BGM trigger falling objects on-rhythm; the player presses a butto
 ## 9. AI prompt starter
 
 ```
-You are helping build a Unity 2D Game Jam demo in a URP project.
+You are helping build a Unity 2.5D Game Jam demo (2D sprites with z-layering for depth) in a URP 2D project.
 Rules: Unity 2022.3.62f1, legacy Input (no Input System), TextMeshPro, namespace VibeJam, [SerializeField] private fields.
 
 Given these existing kit scripts: GameStateMachine, InputMap, GameConfig, PlayerController2D (TopDown), Spawner, ScoreManager (with combo), AudioService, UIBinder.

@@ -6,6 +6,7 @@ This file orients any AI assistant (Claude Code, Cursor, etc.) entering this rep
 
 - **Event**: AI Game Vibe Jam. Sunday, 8-hour on-site development.
 - **Engine**: Unity 2022.3.62f1 (locked, do not upgrade). URP 2D renderer. 1920×1080. Legacy `Input` (no Input System package).
+- **Visual style**: **2.5D** — 2D sprites arranged with z-layering, parallax, and depth cues so the game reads as 2.5D. Underlying tech stays on Unity's 2D stack: SpriteRenderer, Rigidbody2D, Collider2D, Light2D, orthographic camera by default (perspective camera is an option on Sunday if it helps the chosen playbook). Unity API names ending in `2D` (Rigidbody2D, Collider2D, Physics2D, Light2D, OnTriggerEnter2D, etc.) are C# class names — keep them verbatim, do not rename to 3D equivalents.
 - **Team**: Flynn, David (programming) · 廖琦 / Liao (design & gameplay) · mengping (art) · trixie (audio).
 - **Phase at time of writing (2026-04-22)**: pre-production. Theme and gameplay are intentionally undecided until the organizers announce Sunday morning.
 

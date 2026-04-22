@@ -14,7 +14,8 @@ One-pager of every convention the team follows during pre-production and Sunday 
 See `agents/AGENTS.md` for the full list. Highlights:
 
 - Unity 2022.3.62f1 (locked). Do not upgrade.
-- URP 14.0.12 with 2D renderer. 1920×1080. Linear color space. Orthographic camera.
+- **Visual style: 2.5D.** 2D sprites arranged with z-layering, parallax, and depth cues to read as 2.5D. Implementation stays on Unity's 2D stack (SpriteRenderer, Rigidbody2D, Collider2D, Light2D, orthographic camera by default). Unity C# API names that end in `2D` (Rigidbody2D, Collider2D, Physics2D, Light2D, OnTriggerEnter2D, etc.) are class names — keep them verbatim, never rename to "3D" variants or "2.5D" variants (they don't exist).
+- URP 14.0.12 with 2D renderer. 1920×1080. Linear color space. Orthographic camera (switchable to perspective on Sunday if needed for a stronger 2.5D effect).
 - Legacy `Input` (`UnityEngine.Input`). Do not add the Input System package.
 - TextMeshPro for all text. Do not use the old uGUI `Text`.
 - Rigidbody2D / Collider2D for physics. No 3D physics.
