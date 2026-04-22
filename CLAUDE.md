@@ -49,6 +49,25 @@ If anything below conflicts with `AGENTS.md`, `AGENTS.md` wins.
 - When generating a new MonoBehaviour, include the `AI EXTENSION HINTS` comment block at the top (see any script in `sprint_kit/01_unity_templates/Scripts/` for the format).
 - Chinese replies are fine in chat; file contents stay English (except bilingual design docs).
 
+## Auto-behavior: when the user drops an asset or describes a new thing
+
+When the user says things like "I made a jump sound", "here's a meteor sprite", "look at this code I wrote" — WITHOUT explicit instructions — do this automatically:
+
+1. Identify category: audio / sprite / animation / script / design / bug.
+2. Consult the matching kit file(s):
+   - Audio → `sprint_kit/03_assets_stub/AUDIO_CONVENTION.md` + `sprint_kit/01_unity_templates/Audio/AUDIO_INTEGRATION.md`
+   - Sprite → `sprint_kit/03_assets_stub/PLACEHOLDER_NAMING.md`
+   - Script → `agents/AGENTS.md` + templates under `sprint_kit/01_unity_templates/Scripts/`
+   - UI → `sprint_kit/01_unity_templates/UI/*.md`
+   - Design / playbook / scope → `sprint_kit/04_design/`
+   - Bug → `sprint_kit/02_process/BUG_TRIAGE.md` + `sprint_kit/05_prompts/p06_fix_bug.md`
+3. Reply in exactly three sections:
+   - **Rename to:** correct filename
+   - **Put in:** full repo path
+   - **Wire up:** step-by-step for the programmer (component, field, Unity import settings)
+4. Prefer the simplest option when multiple exist.
+5. If intent is ambiguous (e.g., a sound without knowing which gameplay action), ask ONE clarifying question first.
+
 ## Out of scope for this project
 
 - Unity Input System migration.
