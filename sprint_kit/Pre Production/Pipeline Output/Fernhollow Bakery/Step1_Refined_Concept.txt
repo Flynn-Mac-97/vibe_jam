@@ -1,0 +1,16 @@
+﻿Game idea:
+You manage Fernhollow Bakery, a tiny enchanted pastry shop nestled inside the hollow base of a giant ancient oak tree in a sun-dappled forest. Forest creatures — hedgehogs, rabbits, foxes, and drowsy owls — visit throughout the day to order freshly baked pastries, warm drinks, and seasonal treats. You bake in a cluttered but cozy kitchen alcove, manage a small garden patch out back for fresh ingredients, serve customers across a wooden counter, and slowly decorate and expand the shop. The day ends when the lanterns dim, and your coins let you unlock new recipes, upgrade the kitchen, and plant new garden beds. The game loop is bake → serve → restock → upgrade, with a warm low-pressure rhythm.
+
+Please define:
+- genre: cozy management sim / time-management hybrid
+- perspective: side-view with slight elevation (2.5D-lite, shows interior depth)
+- setting: enchanted bakery inside the hollow base of a giant oak tree, warm amber interior lighting, autumn forest visible through a small round window, wood and moss textures, hanging herb bundles, ceramic jars, ceiling lanterns
+- playable character: a small round-faced human baker girl with big expressive eyes, flour-dusted apron, and a soft pastel beret — friendly and nimble
+- what exact moment is happening in the screenshot: the baker leans across the wooden counter handing a tied pastry box to an excited hedgehog customer, while a white rabbit and a drowsy owl wait in a short queue behind a rope barrier, each with a small patience heart-gauge floating above their heads
+- tone: warm, cozy, gentle whimsy — low pressure, comforting, delightful
+- art direction style: 2D hand-drawn cartoon, soft expressive linework, warm watercolor-influenced shading, pastel-amber and sage-green color palette, large friendly eyes on all characters
+- realism or stylization level: highly stylized, flat-shaded with soft painterly texture overlays, no realistic lighting or photorealism
+- reference games if any: Overcooked, Coffee Talk, Stardew Valley, Bear and Breakfast
+
+Goal:
+Generate a literal final in-game screenshot with visible authentic HUD/UI, as if captured from real gameplay in the shipped game.

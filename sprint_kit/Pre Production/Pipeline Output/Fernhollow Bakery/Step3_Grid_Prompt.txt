@@ -1,0 +1,14 @@
+﻿Title: Fernhollow Bakery — Screenshot Grid
+
+Prompt:
+A 2x2 grid of real in-game screenshots from Fernhollow Bakery, a shipped cozy management sim game, all four panels captured from the same final game build — the game's visuals are rendered in a 2D hand-drawn cartoon style with soft expressive linework, warm watercolor-influenced shading, and a pastel-amber and sage-green palette. Every panel shares the same side-view slightly elevated camera, the same small round-faced baker girl protagonist in flour-dusted apron and pastel beret, the same oak-hollow bakery world with bark walls and warm amber lantern light, and the same soft rounded HUD system with ingredient icons, coin counter, patience heart-gauges, and day-progress arc timer overlaid on top of the rendered scene. All four panels look like real gameplay captures from the same shipped title with continuity locked across every element — same character proportions, same UI font and icon style, same color grading, same ambient lighting model, same world design language.
+
+Panel 1 — Serving: the baker hands a tied pastry box across the wooden counter to an excited hedgehog customer while a white rabbit and drowsy owl wait in a rope queue, patience heart-gauges overlaid above their heads, full HUD overlaid top-left and top-right.
+
+Panel 2 — Kitchen baking: the baker stands at a small stone oven in the kitchen alcove tending golden pastry trays, a mixing bowl and ingredient jars on the prep counter beside her, a bake-progress timer bar overlaid below the oven, low flour stock shown in the HUD.
+
+Panel 3 — Garden harvesting: the baker crouches in a small garden patch just outside the oak tree entrance in soft morning light, picking berries from a bush, a harvest interaction prompt overlaid beside her hand and an ingredient sack counter in the corner.
+
+Panel 4 — Shop upgrade menu: a rounded wooden shop-upgrade panel is overlaid over the bakery interior showing new counter options and decorations with coin costs, small item preview icons, a confirm button, and the bakery partially visible behind the semi-transparent panel — all in the same rounded UI style as the rest of the game.
+
+Not an illustration, not concept art, not a mood board, not a collage of different art styles, not poster framing, no inconsistent character design between panels, no disconnected scenes, no cinematic camera angles that break the side-view gameplay camera.

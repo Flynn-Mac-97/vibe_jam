@@ -1,0 +1,14 @@
+﻿Title: Fernhollow Bakery — Sprite Sheet Atlas
+
+Prompt:
+A production-ready sprite sheet atlas on a pure solid white background, completely empty behind all assets, no gradients and no shadows anywhere on the background. All sprites arranged in a strict uniform grid with equal cell spacing, each asset fully contained within its own grid cell, zero overlap or merging between assets. 2D hand-drawn cartoon style with soft expressive linework, warm watercolor-influenced shading, and pastel-amber and sage-green color palette — matching the Fernhollow Bakery cozy management sim exactly, no redesign of any asset.
+
+Characters row: baker girl in neutral idle pose, baker girl in leaning-serve pose with outstretched arm, baker girl in running pose; hedgehog customer in idle pose and happy receiving pose; white rabbit customer in idle pose and impatient tapping-foot pose; owl customer in idle drowsy pose — all characters at consistent scale, clean readable silhouettes, no motion blur, expressive faces.
+
+UI kit row: rounded ingredient stock panel frame with individual icons for flour, butter, and berries; coin counter widget with coin icon; soft arc day-progress timer bar; patience heart-gauge with full and empty heart states; dialogue speech bubble frame; interaction prompt button with rounded corners; inventory slot frame; shop upgrade panel frame with wooden border — all UI elements share the same soft rounded corner language, consistent icon size, and friendly font style.
+
+Environment tiles row: oak wood plank floor tile, bark wall tile, low wooden serving counter segment (left cap, middle, right cap), kitchen doorway arch frame, small round window frame, hanging herb bundle wall prop, ceiling lantern prop, wooden pastry shelf prop, moss patch floor detail tile.
+
+Items row: tied string pastry box, croissant, berry tart, layered cake slice, ceramic mixing bowl, flour sack, butter block, berry cluster, watering can, coin pile.
+
+All assets cleanly separated with no merging or fusion between elements, consistent scale throughout the entire sheet, crisp silhouettes on every sprite, readable UI icons at small sizes, no broken anatomy, no noisy textures, no warped shapes, no clipping, no floating fragments. No poster layout, no mood board composition, no diagonal arrangement, no merged or fused assets, no decorative framing, no background scene behind assets, no environmental context.
