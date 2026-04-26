@@ -32,6 +32,10 @@ namespace VibeJam.Player
         [SerializeField] private float phaseCooldown = 0.5f;
         private float _phaseTimer;
 
+        public AbilityType CurrentAbilityType => _currentZone != null ? _currentZone.AbilityType : AbilityType.None;
+        public float PhaseReady01 => phaseCooldown <= 0f ? 1f : 1f - Mathf.Clamp01(_phaseTimer / phaseCooldown);
+        public bool CanPhase => _currentZone != null && _currentZone.MirrorZone != null && _phaseTimer <= 0f;
+
         // ---------- Public HUD API ----------
         /// <summary>0 = on cooldown, 1 = fully ready. Use for fillAmount on a UI bar.</summary>
         public float PhaseCooldownFraction => phaseCooldown > 0f ? Mathf.Clamp01(1f - (_phaseTimer / phaseCooldown)) : 1f;
