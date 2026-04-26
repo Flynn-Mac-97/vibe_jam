@@ -102,16 +102,90 @@ namespace VibeJam.Player
             _activeAbility = null;
         }
 
+        // ---------- Phase VFX settings ----------
+        [Header("Phase VFX")]
+        [Tooltip("Total time (seconds) for the full phase animation (fade-out + fade-in).")]
+        [SerializeField] private float phaseDuration = 0.45f;
+
+        [Tooltip("Color flicker tint applied briefly when the player materialises on the other side.")]
+        [SerializeField] private Color phaseFlickerColor = new Color(0.5f, 0.8f, 1f, 1f);
+
         private IEnumerator PhaseCoroutine(AbilityZone targetZone)
         {
-            // Mirror player's offset within the current zone to the target zone
+            // Compute destination before any movement
             Vector3 offsetInZone = transform.position - _currentZone.transform.position;
-            offsetInZone.x = -offsetInZone.x; // reflect on X axis
+            offsetInZone.x = -offsetInZone.x;
             Vector3 destination = targetZone.transform.position + offsetInZone;
 
+            var sr = GetComponent<SpriteRenderer>();
+            if (sr == null) sr = GetComponentInChildren<SpriteRenderer>();
+
+            float halfDur  = phaseDuration * 0.5f;
+            float elapsed  = 0f;
+            Color baseColor = sr != null ? sr.color : Color.white;
+            // Ensure we start from full opacity in case a previous phase was interrupted
+            baseColor.a = 1f;
+
             _cc.enabled = false;
-            transform.position = destination;
-            yield return null; // wait one frame for physics to settle
+
+            // ---- Phase OUT: fade to transparent + scale down ----
+            while (elapsed < halfDur)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / halfDur);
+                float eased = 1f - (t * t); // ease-in quad
+
+                if (sr != null)
+                {
+                    Color c = baseColor;
+                    c.a = eased;
+                    // Tint toward phase colour as we fade
+                    sr.color = Color.Lerp(c, phaseFlickerColor * new Color(1,1,1, c.a), t * 0.6f);
+                }
+                // Scale squish toward border (pull effect on X)
+                float scaleX = Mathf.Lerp(1f, 0.05f, t * t);
+                float scaleY = Mathf.Lerp(1f, 1.3f,  t * 0.5f);
+                transform.localScale = new Vector3(scaleX, scaleY, 1f);
+
+                yield return null;
+            }
+
+            // ---- Teleport at zero scale / full transparent ----
+            transform.position  = destination;
+            transform.localScale = new Vector3(0.05f, 1.3f, 1f);
+            if (sr != null) { Color c = baseColor; c.a = 0f; sr.color = c; }
+
+            yield return null; // one frame for physics to settle
+
+            // ---- Phase IN: scale up + fade back in ----
+            elapsed = 0f;
+            while (elapsed < halfDur)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / halfDur);
+                float eased = t * (2f - t); // ease-out quad
+
+                if (sr != null)
+                {
+                    // Flicker: flash the phase colour early, return to base
+                    float flickerT = Mathf.Clamp01((t - 0.1f) / 0.5f);
+                    Color arriving = Color.Lerp(phaseFlickerColor, baseColor, flickerT);
+                    arriving.a = eased;
+                    sr.color = arriving;
+                }
+                // Expand from squished back to normal with slight overshoot
+                float overshoot = 1f + Mathf.Sin(t * Mathf.PI) * 0.12f;
+                float scaleX = Mathf.Lerp(0.05f, overshoot, eased);
+                float scaleY = Mathf.Lerp(1.3f,  1f / overshoot, eased);
+                transform.localScale = new Vector3(scaleX, scaleY, 1f);
+
+                yield return null;
+            }
+
+            // Snap back to exact values
+            transform.localScale = Vector3.one;
+            if (sr != null) sr.color = baseColor;
+
             _cc.enabled = true;
         }
     }

@@ -1,11 +1,12 @@
 // ========================================
 // AI EXTENSION HINTS
-// Stable (INFRA): show/hide panel on win, restart hook.
+// Stable (INFRA): show/hide panel on win, restart hook, keys-collected subtitle.
 // Extend (GAMEPLAY): add completion time display, star rating, next-level button.
 // Requires: GameStateMachine in scene. TMP package.
 // This script follows VibeJam conventions — see agents/AGENTS.md.
 // ========================================
 
+using TMPro;
 using UnityEngine;
 using VibeJam.Core;
 
@@ -20,6 +21,9 @@ namespace VibeJam.UI
         // ---------- INFRA ----------
         [Tooltip("Root GameObject of the win overlay. Will be hidden at Start and shown on win.")]
         [SerializeField] private GameObject panel;
+
+        [Tooltip("Optional subtitle label. Shows how many keys were collected on win.")]
+        [SerializeField] private TMP_Text keysCollectedLabel;
 
         private void Start()
         {
@@ -40,6 +44,9 @@ namespace VibeJam.UI
         private void ShowWinScreen()
         {
             if (panel != null) panel.SetActive(true);
+
+            if (keysCollectedLabel != null && KeyManager.Instance != null)
+                keysCollectedLabel.text = $"All {KeyManager.Instance.TotalCount} keys collected!";
         }
     }
 }

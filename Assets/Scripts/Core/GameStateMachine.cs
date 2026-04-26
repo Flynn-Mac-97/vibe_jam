@@ -13,7 +13,7 @@ using VibeJam.Core;
 
 namespace VibeJam.Core
 {
-    public enum GameState { Playing, Win }
+    public enum GameState { Playing, Win, GameOver }
 
     /// <summary>
     /// Singleton game state machine. Controls the Playing → Win flow.
@@ -29,6 +29,9 @@ namespace VibeJam.Core
         [Tooltip("Fired when the player reaches the goal.")]
         public UnityEvent OnWin = new UnityEvent();
 
+        [Tooltip("Fired when the player runs out of lives.")]
+        public UnityEvent OnGameOver = new UnityEvent();
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -41,7 +44,7 @@ namespace VibeJam.Core
 
         private void Update()
         {
-            if (State == GameState.Win && InputMap.GetRestartDown())
+            if ((State == GameState.Win || State == GameState.GameOver) && InputMap.GetRestartDown())
                 Restart();
         }
 
@@ -52,6 +55,14 @@ namespace VibeJam.Core
             if (State != GameState.Playing) return;
             State = GameState.Win;
             OnWin.Invoke();
+        }
+
+        /// <summary>Call this when the player runs out of lives.</summary>
+        public void GameOver()
+        {
+            if (State != GameState.Playing) return;
+            State = GameState.GameOver;
+            OnGameOver.Invoke();
         }
 
         /// <summary>Reload the current scene from scratch.</summary>

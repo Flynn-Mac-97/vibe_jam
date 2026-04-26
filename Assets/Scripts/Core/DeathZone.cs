@@ -45,6 +45,16 @@ namespace VibeJam.Core
 
             yield return new WaitForSeconds(respawnDelay);
 
+            // Deduct a life — if this triggers GameOver, skip the respawn
+            LivesManager.Instance?.TakeDamage();
+
+            if (GameStateMachine.Instance != null &&
+                GameStateMachine.Instance.State == GameState.GameOver)
+            {
+                if (cc != null) cc.enabled = true;
+                yield break;
+            }
+
             Vector3 destination = spawnPoint != null
                 ? spawnPoint.position
                 : Vector3.zero;
