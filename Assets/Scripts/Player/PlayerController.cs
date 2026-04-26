@@ -29,6 +29,13 @@ namespace VibeJam.Player
         public void SetVerticalVelocity(float v) => _gravityVelocity = v;
         public void AddVerticalVelocity(float delta) => _gravityVelocity += delta;
 
+        /// <summary>Fire the "Jump" trigger on the Animator (called by JumpAbility at jump moment).</summary>
+        public void TriggerJump()
+        {
+            if (animator != null)
+                animator.SetTrigger("Jump");
+        }
+
         private void Awake()
         {
             _cc = GetComponent<CharacterController>();

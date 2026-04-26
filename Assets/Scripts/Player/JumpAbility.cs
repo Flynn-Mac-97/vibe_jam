@@ -29,7 +29,10 @@ namespace VibeJam.Player
         {
             if (!_isActive) return;
             if (InputMap.GetJumpDown() && player.IsGrounded)
+            {
                 player.SetVerticalVelocity(jumpForce);
+                player.TriggerJump();
+            }
         }
     }
 }
