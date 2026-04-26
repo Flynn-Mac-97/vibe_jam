@@ -22,10 +22,17 @@ namespace VibeJam.Player
 
         private CharacterController _cc;
         private float _gravityVelocity;
+        private PlayerAbilityController _abilityController;
+
+        // ---------- Public ability API ----------
+        public bool IsGrounded => _cc.isGrounded;
+        public void SetVerticalVelocity(float v) => _gravityVelocity = v;
+        public void AddVerticalVelocity(float delta) => _gravityVelocity += delta;
 
         private void Awake()
         {
             _cc = GetComponent<CharacterController>();
+            _abilityController = GetComponent<PlayerAbilityController>();
             if (spriteRenderer == null)
                 spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
@@ -39,6 +46,9 @@ namespace VibeJam.Player
             if (_cc.isGrounded && _gravityVelocity < 0f)
                 _gravityVelocity = -2f; // small constant keeps isGrounded reliable
             _gravityVelocity += Physics.gravity.y * Time.deltaTime;
+
+            // Ability update (may modify _gravityVelocity via SetVerticalVelocity / AddVerticalVelocity)
+            _abilityController?.ProcessAbility();
 
             // Remap 2D input axes to XZ world movement
             Vector3 move = new Vector3(input.x, _gravityVelocity, input.y);
