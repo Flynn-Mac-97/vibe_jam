@@ -52,5 +52,15 @@ namespace VibeJam.Core
             return Input.GetKeyDown(KeyCode.E)
                 || Input.GetKeyDown(KeyCode.Return);
         }
+
+        public static bool GetPhaseLeftDown()
+        {
+            return Input.GetKeyDown(KeyCode.Q);
+        }
+
+        public static bool GetPhaseRightDown()
+        {
+            return Input.GetKeyDown(KeyCode.E);
+        }
     }
 }

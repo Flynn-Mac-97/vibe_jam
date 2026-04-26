@@ -50,7 +50,7 @@ namespace VibeJam.Player
             _phaseTimer -= Time.deltaTime;
             if (_phaseTimer <= 0f && _currentZone != null && _currentZone.MirrorZone != null)
             {
-                if (InputMap.GetPhaseDown())
+                if (InputMap.GetPhaseLeftDown() || InputMap.GetPhaseRightDown())
                 {
                     _phaseTimer = phaseCooldown;
                     StartCoroutine(PhaseCoroutine(_currentZone.MirrorZone));

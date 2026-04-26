@@ -50,21 +50,20 @@ namespace VibeJam.Player
             // Ability update (may modify _gravityVelocity via SetVerticalVelocity / AddVerticalVelocity)
             _abilityController?.ProcessAbility();
 
-            // Remap 2D input axes to XZ world movement
-            Vector3 move = new Vector3(input.x, _gravityVelocity, input.y);
+            // Remap 2D input axes to X world movement only — Z axis locked (no depth movement)
+            Vector3 move = new Vector3(input.x, _gravityVelocity, 0f);
             move.x *= speed;
-            move.z *= speed;
 
             _cc.Move(move * Time.deltaTime);
 
             // Sprite facing
             if (spriteRenderer != null && Mathf.Abs(input.x) > 0.01f)
-                spriteRenderer.flipX = input.x > 0f;
+                spriteRenderer.flipX = input.x < 0f;
 
             // Animator
             if (animator != null)
             {
-                float flatSpeed = new Vector2(input.x, input.y).magnitude;
+                float flatSpeed = Mathf.Abs(input.x);
                 animator.SetFloat("Speed", flatSpeed);
             }
         }

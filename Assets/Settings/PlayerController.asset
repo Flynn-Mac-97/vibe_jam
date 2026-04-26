@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3163262b5cf7d2d4c8198f2fd700a796, type: 3}
   m_Name: PlayerController
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 5
   jumpForce: 10
   spawnIntervalSeconds: 1.5
   spawnIntervalMin: 0.4
