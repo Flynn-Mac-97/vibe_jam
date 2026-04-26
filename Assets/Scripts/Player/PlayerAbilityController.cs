@@ -32,6 +32,13 @@ namespace VibeJam.Player
         [SerializeField] private float phaseCooldown = 0.5f;
         private float _phaseTimer;
 
+        // ---------- Public HUD API ----------
+        /// <summary>0 = on cooldown, 1 = fully ready. Use for fillAmount on a UI bar.</summary>
+        public float PhaseCooldownFraction => phaseCooldown > 0f ? Mathf.Clamp01(1f - (_phaseTimer / phaseCooldown)) : 1f;
+
+        /// <summary>Display name of the current zone (e.g. "Left", "Right"), or "—" if between zones.</summary>
+        public string CurrentSideLabel => _currentZone != null ? _currentZone.name : "—";
+
         private void Awake()
         {
             _playerController = GetComponent<PlayerController>();
